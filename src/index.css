@@ -733,6 +733,70 @@ button, input, select, textarea {
     grid-template-columns: 1fr !important;
     gap: 36px !important;
   }
+
+  /* Mobile Navbar and Hero Overlap Prevention */
+  .hero-section {
+    padding-top: 135px !important;
+    justify-content: flex-start !important;
+  }
+
+  .hero-anniversary-badge {
+    padding: 6px 14px !important;
+    margin-bottom: 16px !important;
+    max-width: 100% !important;
+  }
+
+  .navbar-main-nav {
+    padding: 7px 0 !important;
+  }
+
+  .navbar-container {
+    padding: 0 12px !important;
+    gap: 8px !important;
+    justify-content: space-between !important;
+  }
+
+  .navbar-brand-link {
+    gap: 8px !important;
+    min-width: 0 !important;
+  }
+
+  .navbar-logo-icon {
+    width: 34px !important;
+    height: 34px !important;
+    border-radius: 9px !important;
+  }
+
+  .navbar-title-green {
+    font-size: 1.15rem !important;
+  }
+
+  .navbar-title-carz {
+    font-size: 1.02rem !important;
+  }
+
+  .navbar-subtitle {
+    font-size: 0.62rem !important;
+    letter-spacing: 0.04em !important;
+  }
+
+  .navbar-right-controls {
+    gap: 6px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .navbar-theme-btn {
+    width: 34px !important;
+    height: 34px !important;
+  }
+
+  .mobile-toggle {
+    height: 34px !important;
+    padding: 0 10px !important;
+    font-size: 0.76rem !important;
+    gap: 4px !important;
+    border-radius: 8px !important;
+  }
 }
 
 .mobile-toggle {
@@ -746,6 +810,47 @@ button, input, select, textarea {
 }
 
 @media (max-width: 480px) {
+  .hero-section {
+    padding-top: 125px !important;
+  }
+
+  .hero-anniversary-badge {
+    padding: 5px 12px !important;
+    gap: 6px !important;
+  }
+
+  .navbar-container {
+    padding: 0 8px !important;
+  }
+
+  .navbar-logo-icon {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .navbar-title-green {
+    font-size: 1.05rem !important;
+  }
+
+  .navbar-title-carz {
+    font-size: 0.92rem !important;
+  }
+
+  .navbar-subtitle {
+    font-size: 0.54rem !important;
+  }
+
+  .navbar-theme-btn {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  .mobile-toggle {
+    height: 32px !important;
+    padding: 0 8px !important;
+    font-size: 0.72rem !important;
+  }
+
   .hero-stats-grid {
     grid-template-columns: 1fr 1fr !important;
     gap: 8px !important;
@@ -755,3 +860,4 @@ button, input, select, textarea {
     grid-template-columns: 1fr 1fr !important;
   }
 }
+

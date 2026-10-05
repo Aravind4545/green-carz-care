@@ -96,9 +96,9 @@ export function MobileBottomNav({ onOpenBooking, theme }) {
         <span>Services</span>
       </a>
 
-      {/* Tab 4: Calculator */}
+      {/* Tab 4: Studio Gallery */}
       <a
-        href="#calculator"
+        href="#gallery"
         style={{
           display: 'flex',
           flexDirection: 'column',
@@ -113,8 +113,8 @@ export function MobileBottomNav({ onOpenBooking, theme }) {
           transition: 'color 0.2s ease'
         }}
       >
-        <Calculator size={19} color="var(--brand-green)" />
-        <span>Estimate</span>
+        <span style={{ fontSize: '18px', lineHeight: 1 }}>📸</span>
+        <span>Studio</span>
       </a>
 
       {/* Tab 5: Book Appointment - Highlighted Pill */}

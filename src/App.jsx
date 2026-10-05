@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
+import { HighlightedServices } from './components/HighlightedServices';
 import { SpecialOffers } from './components/SpecialOffers';
-import { BeforeAfterSection } from './components/BeforeAfterSection';
-import { ServicesCatalog } from './components/ServicesCatalog';
-import { InteractiveEstimator } from './components/InteractiveEstimator';
-import { HealthCheckup37Point } from './components/HealthCheckup37Point';
-import { BrandPartners } from './components/BrandPartners';
-import { Testimonials } from './components/Testimonials';
-import { FaqSection } from './components/FaqSection';
+import { RealGallery } from './components/RealGallery';
 import { LocationAndContact } from './components/LocationAndContact';
 import { Footer } from './components/Footer';
 import { BookingModal } from './components/BookingModal';
@@ -49,47 +44,27 @@ export function App() {
         onOpenFlyer={handleOpenFlyer}
       />
 
-      {/* Hero Showcase */}
+      {/* Hero Showcase with Real Building Exterior */}
       <Hero
         onOpenBooking={handleOpenBooking}
         onOpenFlyer={handleOpenFlyer}
         theme={theme}
       />
 
-      {/* Special 2nd Anniversary Vehicle Packages */}
+      {/* Core Highlighted Services with Real Car & Studio Photos */}
+      <HighlightedServices
+        onOpenBooking={handleOpenBooking}
+        onOpenFlyer={handleOpenFlyer}
+      />
+
+      {/* 2nd Anniversary Celebration Packages (From ₹1,999) */}
       <SpecialOffers
         onOpenBooking={handleOpenBooking}
         onOpenFlyer={handleOpenFlyer}
       />
 
-      {/* Interactive Before & After Transformation Slider */}
-      <BeforeAfterSection
-        onOpenBooking={handleOpenBooking}
-      />
-
-      {/* Full 37+ Services Catalog with Filter Tabs */}
-      <ServicesCatalog
-        onOpenBooking={handleOpenBooking}
-      />
-
-      {/* Live Interactive Cost Calculator & Quote Builder */}
-      <InteractiveEstimator
-        onOpenBooking={handleOpenBooking}
-      />
-
-      {/* The 37-Point Health Inspection Grid */}
-      <HealthCheckup37Point
-        onOpenBooking={handleOpenBooking}
-      />
-
-      {/* Authorized Brands, Studio Tour & Amenities */}
-      <BrandPartners />
-
-      {/* Customer Testimonials from Jangareddygudem */}
-      <Testimonials />
-
-      {/* Frequently Asked Questions */}
-      <FaqSection />
+      {/* Real Workshop & Detailing Studio Gallery */}
+      <RealGallery />
 
       {/* Workshop Location, Phones, Working Hours & Maps */}
       <LocationAndContact
@@ -113,17 +88,14 @@ export function App() {
       <FlyerModal
         isOpen={isFlyerOpen}
         onClose={() => setIsFlyerOpen(false)}
-      />
-
-      <FloatingActions
         onOpenBooking={handleOpenBooking}
       />
 
-      {/* Mobile Bottom Quick-Navigation Bar */}
-      <MobileBottomNav
-        onOpenBooking={handleOpenBooking}
-        theme={theme}
-      />
+      {/* Quick Floating WhatsApp & Call Buttons */}
+      <FloatingActions onOpenBooking={handleOpenBooking} />
+
+      {/* Mobile Sticky Bottom Navigation */}
+      <MobileBottomNav onOpenBooking={handleOpenBooking} />
     </div>
   );
 }

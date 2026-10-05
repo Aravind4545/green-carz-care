@@ -16,12 +16,10 @@ export function Navbar({ theme, toggleTheme, onOpenBooking, onOpenFlyer }) {
   }, []);
 
   const navLinks = [
-    { label: 'Packages', href: '#packages' },
     { label: 'Services', href: '#services' },
-    { label: 'Before & After', href: '#transformation' },
-    { label: 'Estimator', href: '#calculator' },
-    { label: 'Inspection', href: '#health-check' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Packages', href: '#packages' },
+    { label: 'Studio Gallery', href: '#gallery' },
+    { label: 'Location & Contact', href: '#contact' },
   ];
 
   const isLight = theme === 'light';
@@ -141,7 +139,9 @@ export function Navbar({ theme, toggleTheme, onOpenBooking, onOpenFlyer }) {
       </div>
 
       {/* Main Spacious, Integrated Glass Navbar */}
-      <nav style={{
+      <nav 
+        className="navbar-main-nav"
+        style={{
         background: isLight
           ? (isScrolled ? 'rgba(255, 255, 255, 0.98)' : 'rgba(255, 255, 255, 0.92)')
           : (isScrolled ? 'rgba(11, 15, 12, 0.96)' : 'rgba(11, 15, 12, 0.78)'),
@@ -156,21 +156,21 @@ export function Navbar({ theme, toggleTheme, onOpenBooking, onOpenFlyer }) {
         transition: 'all 0.3s ease',
         padding: isScrolled ? '10px 0' : '14px 0'
       }}>
-        <div className="container" style={{
+        <div className="container navbar-container" style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
           gap: '24px'
         }}>
           {/* Brand Logo & Title */}
-          <a href="#" style={{
+          <a href="#" className="navbar-brand-link" style={{
             display: 'flex',
             alignItems: 'center',
             gap: '12px',
             textDecoration: 'none',
             flexShrink: 0
           }}>
-            <div style={{
+            <div className="navbar-logo-icon" style={{
               width: '44px',
               height: '44px',
               borderRadius: '12px',
@@ -180,7 +180,8 @@ export function Navbar({ theme, toggleTheme, onOpenBooking, onOpenFlyer }) {
               alignItems: 'center',
               justifyContent: 'center',
               boxShadow: isLight ? '0 2px 10px rgba(0, 0, 0, 0.06)' : '0 4px 15px rgba(142, 224, 36, 0.25)',
-              overflow: 'hidden'
+              overflow: 'hidden',
+              flexShrink: 0
             }}>
               <img
                 src={isLight ? '/assets/logo-light-clean.png' : '/assets/logo-icon.png'}
@@ -193,9 +194,9 @@ export function Navbar({ theme, toggleTheme, onOpenBooking, onOpenFlyer }) {
               />
             </div>
 
-            <div>
+            <div className="navbar-brand-text">
               <div style={{ display: 'flex', alignItems: 'baseline', gap: '5px' }}>
-                <span style={{
+                <span className="navbar-title-green" style={{
                   fontFamily: 'var(--font-heading)',
                   fontSize: '1.4rem',
                   fontWeight: 900,
@@ -205,7 +206,7 @@ export function Navbar({ theme, toggleTheme, onOpenBooking, onOpenFlyer }) {
                 }}>
                   GREEN
                 </span>
-                <span style={{
+                <span className="navbar-title-carz" style={{
                   fontFamily: 'var(--font-mono)',
                   fontSize: '1.2rem',
                   fontWeight: 800,
@@ -216,7 +217,7 @@ export function Navbar({ theme, toggleTheme, onOpenBooking, onOpenFlyer }) {
                   CARZ CARE
                 </span>
               </div>
-              <p style={{
+              <p className="navbar-subtitle" style={{
                 fontSize: '0.7rem',
                 color: isLight ? '#556957' : 'var(--text-muted)',
                 letterSpacing: '0.08em',
@@ -261,7 +262,7 @@ export function Navbar({ theme, toggleTheme, onOpenBooking, onOpenFlyer }) {
           </div>
 
           {/* Right Action Controls */}
-          <div style={{
+          <div className="navbar-right-controls" style={{
             display: 'flex',
             alignItems: 'center',
             gap: '14px',
@@ -277,6 +278,7 @@ export function Navbar({ theme, toggleTheme, onOpenBooking, onOpenFlyer }) {
             {/* Theme Toggle Button */}
             <button
               onClick={toggleTheme}
+              className="navbar-theme-btn"
               title={`Switch to ${isLight ? 'Dark Detailing Studio' : 'Light Showroom'} Mode`}
               style={{
                 width: '40px',
@@ -422,12 +424,87 @@ export function Navbar({ theme, toggleTheme, onOpenBooking, onOpenFlyer }) {
             display: none !important;
           }
           .top-announcement-bar {
-            padding: 6px 12px !important;
+            padding: 4px 10px !important;
+            height: 30px !important;
+            min-height: 30px !important;
+            max-height: 30px !important;
+            overflow: hidden !important;
             justify-content: center !important;
           }
           .announcement-left {
             justify-content: center !important;
             width: 100% !important;
+          }
+          .navbar-main-nav {
+            padding: 7px 0 !important;
+          }
+          .navbar-container {
+            padding: 0 12px !important;
+            gap: 8px !important;
+            justify-content: space-between !important;
+          }
+          .navbar-brand-link {
+            gap: 8px !important;
+            min-width: 0 !important;
+          }
+          .navbar-logo-icon {
+            width: 34px !important;
+            height: 34px !important;
+            border-radius: 9px !important;
+          }
+          .navbar-title-green {
+            font-size: 1.15rem !important;
+          }
+          .navbar-title-carz {
+            font-size: 1.02rem !important;
+          }
+          .navbar-subtitle {
+            font-size: 0.62rem !important;
+            letter-spacing: 0.04em !important;
+            margin-top: 1px !important;
+          }
+          .navbar-right-controls {
+            gap: 6px !important;
+            flex-shrink: 0 !important;
+          }
+          .navbar-theme-btn {
+            width: 34px !important;
+            height: 34px !important;
+          }
+          .mobile-toggle {
+            height: 34px !important;
+            padding: 0 10px !important;
+            font-size: 0.76rem !important;
+            gap: 4px !important;
+            border-radius: 8px !important;
+          }
+        }
+
+        @media (max-width: 400px) {
+          .navbar-container {
+            padding: 0 8px !important;
+          }
+          .navbar-logo-icon {
+            width: 30px !important;
+            height: 30px !important;
+          }
+          .navbar-title-green {
+            font-size: 1.05rem !important;
+          }
+          .navbar-title-carz {
+            font-size: 0.92rem !important;
+          }
+          .navbar-subtitle {
+            font-size: 0.54rem !important;
+          }
+          .navbar-theme-btn {
+            width: 32px !important;
+            height: 32px !important;
+          }
+          .mobile-toggle {
+            height: 32px !important;
+            padding: 0 8px !important;
+            font-size: 0.72rem !important;
           }
         }
       `}</style>
