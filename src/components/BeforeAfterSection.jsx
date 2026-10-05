@@ -81,7 +81,7 @@ export function BeforeAfterSection({ onOpenBooking }) {
               touchAction: 'pan-y'
             }}
           >
-            {/* Layer 1: BEFORE (Dull & Oxidized Filter) */}
+            {/* Layer 1: AFTER (Right Side Base - Showroom Mirror Gloss) */}
             <div style={{
               position: 'absolute',
               inset: 0,
@@ -89,37 +89,39 @@ export function BeforeAfterSection({ onOpenBooking }) {
             }}>
               <img
                 src="/assets/mirror-shine-polo.jpg"
-                alt="Before Detailing - Dull & Oxidized Finish"
+                alt="After Detailing - 9H Nano Ceramic Mirror Finish"
                 style={{
                   width: '100%',
                   height: '100%',
                   objectFit: 'cover',
                   display: 'block',
-                  pointerEvents: 'none',
-                  filter: 'grayscale(75%) brightness(0.78) contrast(0.85) blur(0.4px)'
+                  pointerEvents: 'none'
                 }}
               />
 
-              {/* Before Badge */}
+              {/* After Badge (Stays on Top Right) */}
               <div style={{
                 position: 'absolute',
                 top: '14px',
-                left: '14px',
-                background: 'rgba(20, 20, 20, 0.85)',
-                color: '#ff8585',
-                border: '1px solid rgba(255, 100, 100, 0.35)',
-                padding: '4px 12px',
+                right: '14px',
+                background: 'rgba(10, 24, 12, 0.92)',
+                color: '#8ee024',
+                border: '1.5px solid rgba(142, 224, 36, 0.5)',
+                padding: '5px 14px',
                 borderRadius: '999px',
                 fontSize: '0.74rem',
                 fontWeight: 800,
-                letterSpacing: '0.04em',
-                backdropFilter: 'blur(6px)'
+                letterSpacing: '0.05em',
+                backdropFilter: 'blur(8px)',
+                boxShadow: '0 2px 10px rgba(0,0,0,0.5)',
+                zIndex: 4,
+                pointerEvents: 'none'
               }}>
-                BEFORE: DULL & SWIRLED
+                AFTER: 9H CERAMIC SHINE
               </div>
             </div>
 
-            {/* Layer 2: AFTER (Clipped Crystal Gloss Ceramic Finish) */}
+            {/* Layer 2: BEFORE (Left Side Overlay - Mud & Road Grime) */}
             <div style={{
               position: 'absolute',
               inset: 0,
@@ -127,34 +129,36 @@ export function BeforeAfterSection({ onOpenBooking }) {
               clipPath: `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)`
             }}>
               <img
-                src="/assets/mirror-shine-polo.jpg"
-                alt="After Detailing - 9H Ceramic Mirror Shine"
+                src="/assets/polo-before-detailing.jpg"
+                alt="Before Detailing - Mud & Dusty Paint"
                 style={{
                   width: '100%',
                   height: '100%',
                   objectFit: 'cover',
                   display: 'block',
-                  pointerEvents: 'none',
-                  filter: 'contrast(1.1) brightness(1.02) saturate(1.1)'
+                  pointerEvents: 'none'
                 }}
               />
 
-              {/* After Badge */}
+              {/* Before Badge (Stays on Top Left) */}
               <div style={{
                 position: 'absolute',
                 top: '14px',
-                right: '14px',
-                background: 'rgba(10, 20, 12, 0.88)',
-                color: '#8ee024',
-                border: '1px solid rgba(142, 224, 36, 0.4)',
-                padding: '4px 12px',
+                left: '14px',
+                background: 'rgba(28, 14, 14, 0.92)',
+                color: '#ff8585',
+                border: '1.5px solid rgba(255, 100, 100, 0.5)',
+                padding: '5px 14px',
                 borderRadius: '999px',
                 fontSize: '0.74rem',
                 fontWeight: 800,
-                letterSpacing: '0.04em',
-                backdropFilter: 'blur(6px)'
+                letterSpacing: '0.05em',
+                backdropFilter: 'blur(8px)',
+                boxShadow: '0 2px 10px rgba(0,0,0,0.5)',
+                zIndex: 6,
+                pointerEvents: 'none'
               }}>
-                AFTER: 9H CERAMIC SHINE
+                BEFORE: DUST & MUDDY PAINT
               </div>
             </div>
 
