@@ -16,7 +16,7 @@ import { FlyerModal } from './components/FlyerModal';
 import { FloatingActions } from './components/FloatingActions';
 
 export function App() {
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState('light');
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [preselectedService, setPreselectedService] = useState('');
   const [isFlyerOpen, setIsFlyerOpen] = useState(false);
