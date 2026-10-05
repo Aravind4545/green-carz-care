@@ -28,7 +28,10 @@ export function BookingModal({ isOpen, onClose, preselectedService }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!formData.name || !formData.phone) return;
+    if (!formData.name.trim() || !formData.phone.trim()) {
+      alert('Please provide your name and phone number to confirm your booking.');
+      return;
+    }
 
     confetti({
       particleCount: 100,
@@ -41,8 +44,8 @@ export function BookingModal({ isOpen, onClose, preselectedService }) {
 
   const handleSendToWhatsApp = () => {
     const text = `*GREEN CARZ CARE - SERVICE APPOINTMENT REQUEST*\n\n` +
-      `*Customer Name:* ${formData.name}\n` +
-      `*Phone Number:* ${formData.phone}\n` +
+      `*Customer Name:* ${formData.name || 'Website Customer'}\n` +
+      `*Phone Number:* ${formData.phone || 'Will provide on chat'}\n` +
       `*Car Model:* ${formData.carMakeModel || 'Not provided'}\n` +
       `*Service / Package:* ${formData.selectedPackage}\n` +
       `*Preferred Date:* ${formData.preferredDate || 'Earliest available'}\n` +
@@ -55,7 +58,11 @@ export function BookingModal({ isOpen, onClose, preselectedService }) {
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()} style={{ padding: '36px 32px' }}>
+      <div 
+        className="modal-content" 
+        onClick={(e) => e.stopPropagation()} 
+        style={{ padding: 'clamp(22px, 4vw, 36px) clamp(16px, 3.5vw, 30px)' }}
+      >
         {/* Close Button */}
         <button onClick={onClose} className="modal-close-btn" title="Close">
           <X size={18} />
@@ -186,22 +193,47 @@ export function BookingModal({ isOpen, onClose, preselectedService }) {
                 />
               </div>
 
-              <div style={{ display: 'flex', gap: '12px', marginTop: '24px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '22px' }}>
                 <button
                   type="submit"
                   className="btn-primary"
-                  style={{ flex: 1, padding: '14px', fontSize: '1rem' }}
+                  style={{
+                    width: '100%',
+                    padding: '15px 20px',
+                    fontSize: '1.05rem',
+                    fontWeight: 800,
+                    borderRadius: '12px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '10px',
+                    boxShadow: '0 4px 18px rgba(86, 152, 20, 0.35)',
+                    cursor: 'pointer'
+                  }}
                 >
-                  Confirm Appointment
+                  <Calendar size={18} strokeWidth={2.5} />
+                  <span>Confirm Appointment</span>
+                  <CheckCircle2 size={18} strokeWidth={2.5} />
                 </button>
+
                 <button
                   type="button"
                   onClick={handleSendToWhatsApp}
                   className="btn-whatsapp"
-                  style={{ padding: '14px 20px' }}
+                  style={{
+                    width: '100%',
+                    padding: '13px 20px',
+                    fontSize: '0.92rem',
+                    fontWeight: 700,
+                    borderRadius: '12px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '8px'
+                  }}
                 >
                   <MessageSquare size={18} />
-                  <span>WhatsApp Direct</span>
+                  <span>Or Confirm via WhatsApp (+91 880 415 9999)</span>
                 </button>
               </div>
             </form>

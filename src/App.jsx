@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { HighlightedServices } from './components/HighlightedServices';
+import { BeforeAfterSection } from './components/BeforeAfterSection';
 import { SpecialOffers } from './components/SpecialOffers';
 import { RealGallery } from './components/RealGallery';
 import { LocationAndContact } from './components/LocationAndContact';
@@ -55,6 +56,11 @@ export function App() {
       <HighlightedServices
         onOpenBooking={handleOpenBooking}
         onOpenFlyer={handleOpenFlyer}
+      />
+
+      {/* Simple Before & After Visual Slider */}
+      <BeforeAfterSection
+        onOpenBooking={handleOpenBooking}
       />
 
       {/* 2nd Anniversary Celebration Packages (From ₹1,999) */}

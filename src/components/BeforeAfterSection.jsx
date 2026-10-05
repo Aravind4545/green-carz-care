@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Sparkles, SlidersHorizontal, ShieldCheck, Droplet, Sun, Eye } from 'lucide-react';
+import { Sparkles, SlidersHorizontal, Calendar, ArrowRight } from 'lucide-react';
 
 export function BeforeAfterSection({ onOpenBooking }) {
   const [sliderPosition, setSliderPosition] = useState(50);
@@ -32,31 +32,34 @@ export function BeforeAfterSection({ onOpenBooking }) {
       window.removeEventListener('mouseup', handleMouseUp);
       window.removeEventListener('touchend', handleMouseUp);
     };
-  }, []);
+  }, [isDragging]);
 
   return (
     <section id="transformation" className="section" style={{
-      background: 'var(--bg-primary)',
-      position: 'relative'
+      background: 'var(--bg-secondary)',
+      borderTop: '1px solid var(--border-color)',
+      borderBottom: '1px solid var(--border-color)',
+      padding: '60px 0'
     }}>
       <div className="container">
-        {/* Header */}
-        <div className="section-header">
+        
+        {/* Simple Section Header */}
+        <div className="section-header" style={{ marginBottom: '28px' }}>
           <div className="section-tag">
-            <Eye size={14} /> Visible Transformation
+            <Sparkles size={14} /> Detailing Transformation
           </div>
           <h2 className="section-title">
-            Witness The <span className="text-gradient-green">Showroom Mirror Magic</span>
+            Before & <span className="text-gradient-green">After Finish</span>
           </h2>
-          <p className="section-subtitle">
-            Drag the interactive slider below to inspect the real-world difference our intensive multi-stage compounding, paint correction, and 9H nano ceramic coating makes on dull paintwork.
+          <p className="section-subtitle" style={{ maxWidth: '560px' }}>
+            Drag the slider left and right to inspect the dramatic difference our multi-stage compounding and 9H nano ceramic coating makes on vehicle paint.
           </p>
         </div>
 
-        {/* Interactive Comparison Container */}
+        {/* Interactive Comparison Slider */}
         <div style={{
-          maxWidth: '960px',
-          margin: '0 auto 48px auto',
+          maxWidth: '820px',
+          margin: '0 auto',
           position: 'relative'
         }}>
           <div
@@ -68,183 +71,148 @@ export function BeforeAfterSection({ onOpenBooking }) {
             style={{
               position: 'relative',
               width: '100%',
-              aspectRatio: '16/9',
-              borderRadius: '24px',
+              aspectRatio: '16/10',
+              borderRadius: '20px',
               overflow: 'hidden',
               cursor: isDragging ? 'grabbing' : 'ew-resize',
-              border: '2px solid var(--border-highlight)',
-              boxShadow: '0 20px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(144, 192, 67, 0.15)',
+              border: '2px solid var(--border-color)',
+              boxShadow: 'var(--shadow-lg)',
               userSelect: 'none',
               touchAction: 'pan-y'
             }}
           >
-            {/* Background Full Image */}
-            <img
-              src="/assets/before-after.jpg"
-              alt="Before and after car ceramic coating"
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                display: 'block',
-                pointerEvents: 'none'
-              }}
-            />
+            {/* Layer 1: BEFORE (Dull & Oxidized Filter) */}
+            <div style={{
+              position: 'absolute',
+              inset: 0,
+              overflow: 'hidden'
+            }}>
+              <img
+                src="/assets/mirror-shine-polo.jpg"
+                alt="Before Detailing - Dull & Oxidized Finish"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  display: 'block',
+                  pointerEvents: 'none',
+                  filter: 'grayscale(75%) brightness(0.78) contrast(0.85) blur(0.4px)'
+                }}
+              />
 
-            {/* Split Divider Line */}
+              {/* Before Badge */}
+              <div style={{
+                position: 'absolute',
+                top: '14px',
+                left: '14px',
+                background: 'rgba(20, 20, 20, 0.85)',
+                color: '#ff8585',
+                border: '1px solid rgba(255, 100, 100, 0.35)',
+                padding: '4px 12px',
+                borderRadius: '999px',
+                fontSize: '0.74rem',
+                fontWeight: 800,
+                letterSpacing: '0.04em',
+                backdropFilter: 'blur(6px)'
+              }}>
+                BEFORE: DULL & SWIRLED
+              </div>
+            </div>
+
+            {/* Layer 2: AFTER (Clipped Crystal Gloss Ceramic Finish) */}
+            <div style={{
+              position: 'absolute',
+              inset: 0,
+              overflow: 'hidden',
+              clipPath: `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)`
+            }}>
+              <img
+                src="/assets/mirror-shine-polo.jpg"
+                alt="After Detailing - 9H Ceramic Mirror Shine"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  display: 'block',
+                  pointerEvents: 'none',
+                  filter: 'contrast(1.1) brightness(1.02) saturate(1.1)'
+                }}
+              />
+
+              {/* After Badge */}
+              <div style={{
+                position: 'absolute',
+                top: '14px',
+                right: '14px',
+                background: 'rgba(10, 20, 12, 0.88)',
+                color: '#8ee024',
+                border: '1px solid rgba(142, 224, 36, 0.4)',
+                padding: '4px 12px',
+                borderRadius: '999px',
+                fontSize: '0.74rem',
+                fontWeight: 800,
+                letterSpacing: '0.04em',
+                backdropFilter: 'blur(6px)'
+              }}>
+                AFTER: 9H CERAMIC SHINE
+              </div>
+            </div>
+
+            {/* Slider Dividing Bar */}
             <div style={{
               position: 'absolute',
               top: 0,
               bottom: 0,
               left: `${sliderPosition}%`,
-              width: '4px',
-              background: 'var(--brand-green)',
-              boxShadow: '0 0 15px var(--brand-green), 0 0 30px rgba(144, 192, 67, 0.5)',
+              width: '3px',
+              background: '#ffffff',
+              boxShadow: '0 0 12px rgba(0, 0, 0, 0.6), 0 0 8px var(--brand-green)',
               transform: 'translateX(-50%)',
-              zIndex: 5
+              zIndex: 10,
+              pointerEvents: 'none'
             }}>
-              {/* Center Handle Button */}
+              {/* Draggable Circle Handle */}
               <div style={{
                 position: 'absolute',
                 top: '50%',
                 left: '50%',
                 transform: 'translate(-50%, -50%)',
-                width: '44px',
-                height: '44px',
+                width: '42px',
+                height: '42px',
                 borderRadius: '50%',
-                background: 'var(--brand-green-gradient)',
+                background: 'var(--brand-green)',
+                color: '#0e140f',
                 border: '3px solid #ffffff',
-                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.5), 0 0 20px rgba(144, 192, 67, 0.6)',
+                boxShadow: '0 4px 16px rgba(0, 0, 0, 0.5)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: '#0e130f',
-                cursor: 'grab'
+                cursor: 'ew-resize'
               }}>
                 <SlidersHorizontal size={18} strokeWidth={2.5} />
               </div>
             </div>
-
-            {/* Left Label: BEFORE */}
-            <div 
-              className="before-badge"
-              style={{
-                position: 'absolute',
-                top: '14px',
-                left: '14px',
-                background: 'rgba(15, 20, 16, 0.88)',
-                backdropFilter: 'blur(8px)',
-                border: '1px solid rgba(255, 255, 255, 0.15)',
-                padding: '6px 12px',
-                borderRadius: '999px',
-                color: '#ff7875',
-                fontSize: '0.78rem',
-                fontWeight: 800,
-                letterSpacing: '0.06em',
-                zIndex: 4,
-                pointerEvents: 'none',
-                whiteSpace: 'nowrap'
-              }}
-            >
-              BEFORE: DUSTY & DULL
-            </div>
-
-            {/* Right Label: AFTER */}
-            <div 
-              className="after-badge"
-              style={{
-                position: 'absolute',
-                top: '14px',
-                right: '14px',
-                background: 'rgba(15, 20, 16, 0.88)',
-                backdropFilter: 'blur(8px)',
-                border: '1px solid var(--border-highlight)',
-                padding: '6px 12px',
-                borderRadius: '999px',
-                color: 'var(--brand-green-bright)',
-                fontSize: '0.78rem',
-                fontWeight: 800,
-                letterSpacing: '0.06em',
-                zIndex: 4,
-                pointerEvents: 'none',
-                whiteSpace: 'nowrap',
-                boxShadow: '0 0 15px rgba(144, 192, 67, 0.3)'
-              }}
-            >
-              AFTER: 9H CERAMIC GLOSS
-            </div>
           </div>
 
-          <p style={{
-            textAlign: 'center',
-            fontSize: '0.88rem',
-            color: 'var(--text-muted)',
-            marginTop: '14px'
+          {/* Simple CTA underneath slider */}
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            marginTop: '22px'
           }}>
-            ← Drag the slider sideways to inspect transformation →
-          </p>
-        </div>
-
-        {/* Feature Highlights Grid */}
-        <div className="grid-3" style={{ maxWidth: '1050px', margin: '0 auto' }}>
-          <div className="glass-card" style={{ padding: '24px' }}>
-            <div style={{
-              width: '46px',
-              height: '46px',
-              borderRadius: '12px',
-              background: 'rgba(144, 192, 67, 0.15)',
-              color: 'var(--brand-green)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              marginBottom: '16px'
-            }}>
-              <Droplet size={24} />
-            </div>
-            <h4 style={{ fontSize: '1.2rem', marginBottom: '8px' }}>Hydrophobic Water Sheeting</h4>
-            <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
-              Water, mud, and road grime slide right off the surface with zero sticking. Washing your car takes only minutes.
-            </p>
-          </div>
-
-          <div className="glass-card" style={{ padding: '24px' }}>
-            <div style={{
-              width: '46px',
-              height: '46px',
-              borderRadius: '12px',
-              background: 'rgba(144, 192, 67, 0.15)',
-              color: 'var(--brand-green)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              marginBottom: '16px'
-            }}>
-              <Sun size={24} />
-            </div>
-            <h4 style={{ fontSize: '1.2rem', marginBottom: '8px' }}>UV & Acid Rain Protection</h4>
-            <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
-              Blocks harsh tropical Andhra sunlight from fading your paint and seals clear coat against corrosive bird droppings.
-            </p>
-          </div>
-
-          <div className="glass-card" style={{ padding: '24px' }}>
-            <div style={{
-              width: '46px',
-              height: '46px',
-              borderRadius: '12px',
-              background: 'rgba(144, 192, 67, 0.15)',
-              color: 'var(--brand-green)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              marginBottom: '16px'
-            }}>
-              <ShieldCheck size={24} />
-            </div>
-            <h4 style={{ fontSize: '1.2rem', marginBottom: '8px' }}>3 to 5 Year Ceramic Shield</h4>
-            <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
-              Certified application using premium nano quartz crystals for permanent chemical bond and long-lasting gloss.
-            </p>
+            <button
+              onClick={() => onOpenBooking('9H Nano Ceramic Coating')}
+              className="btn-primary"
+              style={{
+                padding: '12px 24px',
+                fontSize: '0.94rem',
+                borderRadius: '10px'
+              }}
+            >
+              <Calendar size={16} />
+              <span>Get This Mirror Shine On Your Car</span>
+              <ArrowRight size={15} />
+            </button>
           </div>
         </div>
 

@@ -17,6 +17,7 @@ export function Navbar({ theme, toggleTheme, onOpenBooking, onOpenFlyer }) {
 
   const navLinks = [
     { label: 'Services', href: '#services' },
+    { label: 'Before & After', href: '#transformation' },
     { label: 'Packages', href: '#packages' },
     { label: 'Studio Gallery', href: '#gallery' },
     { label: 'Location & Contact', href: '#contact' },
