@@ -19,25 +19,18 @@ export function HighlightedServices({ onOpenBooking }) {
       alt: 'Red Jeep Compass interior detailing at Green Carz Care'
     },
     {
-      title: 'Tyres & 3D Laser Alignment',
-      desc: 'Authorized Yokohama, Michelin & Apollo tyre hub with computerized 3D laser alignment.',
-      badge: 'Authorized Tyre Hub',
+      title: 'Hunter 3D Laser Wheel Alignment',
+      desc: 'State-of-the-art computerized 3D laser alignment and dynamic high-speed wheel balancing.',
+      badge: 'Hunter Hawkeye 3D',
+      image: '/assets/hunter-alignment-bay.jpg',
+      alt: 'Hunter 3D computerized laser wheel alignment bay at Green Carz Care'
+    },
+    {
+      title: 'Authorized Tyres & Battery Hub',
+      desc: 'Official dealers for Yokohama, Michelin, Apollo, Bridgestone tyres & Exide batteries with N2 air.',
+      badge: 'Authorized Hub',
       image: '/assets/tyres-showroom.jpg',
-      alt: 'Tyres showroom and reception at Green Carz Care'
-    },
-    {
-      title: 'igl Ceramic Wheel & Rim Coating',
-      desc: 'Certified igl coatings™ ceramic protection for alloy wheels with infrared heat curing.',
-      badge: 'Certified igl',
-      image: '/assets/bmw-wheel-ceramic.jpg',
-      alt: 'Certified igl ceramic coating on BMW alloy wheel under infrared curing light'
-    },
-    {
-      title: 'Water Wash & Wax Buffing',
-      desc: 'High-pressure underbody lift wash, pH-neutral snow foam bath, and high-gloss machine buffing.',
-      badge: 'Express & Premium',
-      image: '/assets/exterior-building.jpg',
-      alt: 'Green Carz Care washing and detailing facility'
+      alt: 'Branded tyres showroom and customer reception at Green Carz Care'
     }
   ];
 

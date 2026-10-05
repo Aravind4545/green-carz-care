@@ -28,15 +28,15 @@ export function Hero({ onOpenBooking, onOpenFlyer, theme }) {
         transition: 'all 0.3s ease'
       }}
     >
-      {/* Real Green Carz Care Building & Studio Exterior */}
+      {/* Real Green Carz Care Glowing Night Facade */}
       <div style={{
         position: 'absolute',
         inset: 0,
-        backgroundImage: 'url(/assets/exterior-building.jpg)',
+        backgroundImage: 'url(/assets/exterior-night-glowing.jpg)',
         backgroundSize: 'cover',
-        backgroundPosition: 'center 35%',
+        backgroundPosition: 'center 45%',
         zIndex: 0,
-        filter: isLight ? 'brightness(0.92) contrast(1.05)' : 'brightness(0.6) contrast(1.15)',
+        filter: isLight ? 'brightness(0.9) contrast(1.1)' : 'brightness(0.75) contrast(1.2)',
         transition: 'filter 0.3s ease'
       }} />
 

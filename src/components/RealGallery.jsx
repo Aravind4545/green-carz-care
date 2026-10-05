@@ -5,34 +5,34 @@ import { BUSINESS_INFO } from '../data/servicesData';
 export function RealGallery() {
   const galleryItems = [
     {
-      title: 'Our Detailing Facility & Wash Studio',
-      caption: 'Eluru Road, Opp. Kids E.M. School, Jangareddygudem',
-      image: '/assets/exterior-building.jpg',
-      tag: 'Main Facility'
+      title: 'BMW X6 igl Ceramic Detailing',
+      caption: 'Metallic red BMW X6 with igl coatings™ body & rim protection package',
+      image: '/assets/bmw-x6-ceramic-wheel.jpg',
+      tag: 'Luxury Detailing'
     },
     {
-      title: '9H Ceramic Coating on Black Polo',
-      caption: 'Mirror-finish reflection with multi-year paint protection',
-      image: '/assets/mirror-shine-polo.jpg',
-      tag: 'Ceramic Studio'
-    },
-    {
-      title: 'Red Jeep Compass Studio Detailing',
-      caption: 'Intensive interior sanitization & exterior gloss buffing',
-      image: '/assets/ceramic-jeep.jpg',
-      tag: 'Car Spa'
-    },
-    {
-      title: 'Authorized Branded Tyres Showroom',
-      caption: 'Yokohama, Michelin, Bridgestone, Apollo & Exide batteries',
-      image: '/assets/tyres-showroom.jpg',
-      tag: 'Tyre Hub'
-    },
-    {
-      title: 'igl Ceramic Wheel Coating on BMW',
-      caption: 'Certified igl coatings™ application with infrared heat curing',
+      title: 'igl Ceramic Wheel Under Curing Heat',
+      caption: 'Precision alloy wheel ceramic coating under infrared heat curing lamps',
       image: '/assets/bmw-wheel-ceramic.jpg',
-      tag: 'Wheel Detailing'
+      tag: 'Certified igl'
+    },
+    {
+      title: 'Hunter 3D Alignment & Wheel Bay',
+      caption: 'Full workshop bay with computerized Hunter console & hydraulic alignment pit',
+      image: '/assets/hunter-alignment-wide.jpg',
+      tag: '3D Alignment Bay'
+    },
+    {
+      title: 'Our Daytime Studio & Facility',
+      caption: 'State-of-the-art detailing studio on Eluru Road, Jangareddygudem',
+      image: '/assets/exterior-building.jpg',
+      tag: 'Facility Exterior'
+    },
+    {
+      title: 'Fresh Tyre Stock Inventory',
+      caption: 'Wide stock of Yokohama, Michelin, Apollo, Bridgestone & MRF tyres',
+      image: '/assets/tyres-stock.jpg',
+      tag: 'Tyres Inventory'
     }
   ];
 
