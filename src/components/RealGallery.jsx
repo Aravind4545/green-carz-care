@@ -27,6 +27,12 @@ export function RealGallery() {
       caption: 'Yokohama, Michelin, Bridgestone, Apollo & Exide batteries',
       image: '/assets/tyres-showroom.jpg',
       tag: 'Tyre Hub'
+    },
+    {
+      title: 'igl Ceramic Wheel Coating on BMW',
+      caption: 'Certified igl coatings™ application with infrared heat curing',
+      image: '/assets/bmw-wheel-ceramic.jpg',
+      tag: 'Wheel Detailing'
     }
   ];
 

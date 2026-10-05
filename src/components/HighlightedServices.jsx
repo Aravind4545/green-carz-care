@@ -26,6 +26,13 @@ export function HighlightedServices({ onOpenBooking }) {
       alt: 'Tyres showroom and reception at Green Carz Care'
     },
     {
+      title: 'igl Ceramic Wheel & Rim Coating',
+      desc: 'Certified igl coatings™ ceramic protection for alloy wheels with infrared heat curing.',
+      badge: 'Certified igl',
+      image: '/assets/bmw-wheel-ceramic.jpg',
+      alt: 'Certified igl ceramic coating on BMW alloy wheel under infrared curing light'
+    },
+    {
       title: 'Water Wash & Wax Buffing',
       desc: 'High-pressure underbody lift wash, pH-neutral snow foam bath, and high-gloss machine buffing.',
       badge: 'Express & Premium',
