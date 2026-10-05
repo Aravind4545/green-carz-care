@@ -64,8 +64,14 @@ export function BeforeAfterSection({ onOpenBooking }) {
         }}>
           <div
             ref={containerRef}
-            onMouseDown={() => setIsDragging(true)}
-            onTouchStart={() => setIsDragging(true)}
+            onMouseDown={(e) => {
+              setIsDragging(true);
+              handleMove(e.clientX);
+            }}
+            onTouchStart={(e) => {
+              setIsDragging(true);
+              handleMove(e.touches[0].clientX);
+            }}
             onMouseMove={handleMouseMove}
             onTouchMove={handleTouchMove}
             style={{
@@ -98,27 +104,6 @@ export function BeforeAfterSection({ onOpenBooking }) {
                   pointerEvents: 'none'
                 }}
               />
-
-              {/* After Badge (Stays on Top Right) */}
-              <div style={{
-                position: 'absolute',
-                top: '14px',
-                right: '14px',
-                background: 'rgba(10, 24, 12, 0.92)',
-                color: '#8ee024',
-                border: '1.5px solid rgba(142, 224, 36, 0.5)',
-                padding: '5px 14px',
-                borderRadius: '999px',
-                fontSize: '0.74rem',
-                fontWeight: 800,
-                letterSpacing: '0.05em',
-                backdropFilter: 'blur(8px)',
-                boxShadow: '0 2px 10px rgba(0,0,0,0.5)',
-                zIndex: 4,
-                pointerEvents: 'none'
-              }}>
-                AFTER: 9H CERAMIC SHINE
-              </div>
             </div>
 
             {/* Layer 2: BEFORE (Left Side Overlay - Mud & Road Grime) */}
@@ -139,27 +124,6 @@ export function BeforeAfterSection({ onOpenBooking }) {
                   pointerEvents: 'none'
                 }}
               />
-
-              {/* Before Badge (Stays on Top Left) */}
-              <div style={{
-                position: 'absolute',
-                top: '14px',
-                left: '14px',
-                background: 'rgba(28, 14, 14, 0.92)',
-                color: '#ff8585',
-                border: '1.5px solid rgba(255, 100, 100, 0.5)',
-                padding: '5px 14px',
-                borderRadius: '999px',
-                fontSize: '0.74rem',
-                fontWeight: 800,
-                letterSpacing: '0.05em',
-                backdropFilter: 'blur(8px)',
-                boxShadow: '0 2px 10px rgba(0,0,0,0.5)',
-                zIndex: 6,
-                pointerEvents: 'none'
-              }}>
-                BEFORE: DUST & MUDDY PAINT
-              </div>
             </div>
 
             {/* Slider Dividing Bar */}
@@ -196,6 +160,30 @@ export function BeforeAfterSection({ onOpenBooking }) {
                 <SlidersHorizontal size={18} strokeWidth={2.5} />
               </div>
             </div>
+
+            {/* Top-Left BEFORE Badge (Unclipped, Responsive) */}
+            <div
+              className="ba-badge ba-badge-before"
+              style={{
+                opacity: sliderPosition < 14 ? 0.3 : 1
+              }}
+            >
+              <span className="ba-badge-dot"></span>
+              <span className="ba-text-desktop">BEFORE: UNTREATED</span>
+              <span className="ba-text-mobile">BEFORE</span>
+            </div>
+
+            {/* Top-Right AFTER Badge (Unclipped, Responsive) */}
+            <div
+              className="ba-badge ba-badge-after"
+              style={{
+                opacity: sliderPosition > 86 ? 0.3 : 1
+              }}
+            >
+              <span className="ba-badge-dot"></span>
+              <span className="ba-text-desktop">AFTER: 9H CERAMIC</span>
+              <span className="ba-text-mobile">AFTER</span>
+            </div>
           </div>
 
           {/* Simple CTA underneath slider */}
@@ -221,6 +209,81 @@ export function BeforeAfterSection({ onOpenBooking }) {
         </div>
 
       </div>
+
+      <style>{`
+        .ba-badge {
+          position: absolute;
+          top: 14px;
+          padding: 5px 14px;
+          border-radius: 999px;
+          font-size: 0.74rem;
+          font-weight: 800;
+          letter-spacing: 0.05em;
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+          box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+          z-index: 12;
+          pointer-events: none;
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          transition: opacity 0.25s ease;
+          user-select: none;
+        }
+        .ba-badge-before {
+          left: 14px;
+          background: rgba(22, 10, 10, 0.92);
+          color: #ff7575;
+          border: 1.5px solid rgba(255, 110, 110, 0.5);
+        }
+        .ba-badge-after {
+          right: 14px;
+          background: rgba(10, 24, 12, 0.92);
+          color: #8ee024;
+          border: 1.5px solid rgba(142, 224, 36, 0.5);
+        }
+        .ba-badge-dot {
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          flex-shrink: 0;
+        }
+        .ba-badge-before .ba-badge-dot {
+          background: #ff4d4d;
+          box-shadow: 0 0 8px #ff4d4d;
+        }
+        .ba-badge-after .ba-badge-dot {
+          background: #8ee024;
+          box-shadow: 0 0 8px #8ee024;
+        }
+        .ba-text-mobile {
+          display: none;
+        }
+        .ba-text-desktop {
+          display: inline;
+        }
+        @media (max-width: 640px) {
+          .ba-badge {
+            top: 10px !important;
+            padding: 4px 10px !important;
+            font-size: 0.68rem !important;
+            letter-spacing: 0.04em !important;
+            gap: 5px !important;
+          }
+          .ba-badge-before {
+            left: 10px !important;
+          }
+          .ba-badge-after {
+            right: 10px !important;
+          }
+          .ba-text-desktop {
+            display: none !important;
+          }
+          .ba-text-mobile {
+            display: inline !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }
