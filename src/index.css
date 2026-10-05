@@ -703,15 +703,24 @@ button, input, select, textarea {
     gap: 8px !important;
   }
 
-  /* Floating Action Buttons Mobile Optimization */
+  /* Floating Action Buttons Mobile Optimization - Dock above bottom bar */
   .floating-actions-container {
-    bottom: 16px !important;
-    right: 16px !important;
+    bottom: 68px !important;
+    right: 14px !important;
     gap: 8px !important;
   }
 
   .floating-book-btn {
     display: none !important;
+  }
+
+  /* Show Bottom Navigation Bar on Mobile */
+  .mobile-bottom-nav {
+    display: flex !important;
+  }
+
+  body {
+    padding-bottom: 64px !important;
   }
 
   /* Footer Mobile Adjustments */
@@ -723,6 +732,16 @@ button, input, select, textarea {
   .footer-grid {
     grid-template-columns: 1fr !important;
     gap: 36px !important;
+  }
+}
+
+.mobile-toggle {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .mobile-toggle {
+    display: flex !important;
   }
 }
 

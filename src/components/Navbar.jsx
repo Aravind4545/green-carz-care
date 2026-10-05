@@ -318,24 +318,31 @@ export function Navbar({ theme, toggleTheme, onOpenBooking, onOpenFlyer }) {
               <span>Book Appointment</span>
             </button>
 
-            {/* Mobile Hamburger Button */}
+            {/* Mobile Hamburger Button - High visibility & clear label */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="mobile-toggle"
+              aria-label="Open Navigation Menu"
               style={{
-                display: 'none',
-                width: '40px',
-                height: '40px',
-                borderRadius: '8px',
-                background: isLight ? '#edf5ec' : 'var(--bg-tertiary)',
-                border: '1px solid var(--border-color)',
-                color: isLight ? '#101611' : 'var(--text-primary)',
+                height: '38px',
+                padding: '0 12px',
+                borderRadius: '10px',
+                background: isLight ? 'var(--brand-green)' : 'var(--brand-green-gradient)',
+                border: 'none',
+                color: isLight ? '#ffffff' : '#081009',
                 alignItems: 'center',
                 justifyContent: 'center',
-                cursor: 'pointer'
+                gap: '6px',
+                cursor: 'pointer',
+                fontWeight: 800,
+                fontSize: '0.82rem',
+                letterSpacing: '0.05em',
+                boxShadow: isLight ? '0 2px 10px rgba(86, 152, 20, 0.3)' : '0 2px 12px rgba(142, 224, 36, 0.35)',
+                flexShrink: 0
               }}
             >
-              {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+              {mobileMenuOpen ? <X size={18} strokeWidth={2.5} /> : <Menu size={18} strokeWidth={2.5} />}
+              <span>{mobileMenuOpen ? 'CLOSE' : 'MENU'}</span>
             </button>
           </div>
         </div>

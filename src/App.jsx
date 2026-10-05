@@ -14,6 +14,7 @@ import { Footer } from './components/Footer';
 import { BookingModal } from './components/BookingModal';
 import { FlyerModal } from './components/FlyerModal';
 import { FloatingActions } from './components/FloatingActions';
+import { MobileBottomNav } from './components/MobileBottomNav';
 
 export function App() {
   const [theme, setTheme] = useState('light');
@@ -116,6 +117,12 @@ export function App() {
 
       <FloatingActions
         onOpenBooking={handleOpenBooking}
+      />
+
+      {/* Mobile Bottom Quick-Navigation Bar */}
+      <MobileBottomNav
+        onOpenBooking={handleOpenBooking}
+        theme={theme}
       />
     </div>
   );
