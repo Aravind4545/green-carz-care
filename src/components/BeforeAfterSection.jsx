@@ -6,6 +6,18 @@ export function BeforeAfterSection({ onOpenBooking }) {
   const [isDragging, setIsDragging] = useState(false);
   const containerRef = useRef(null);
 
+  // Dynamic opacity: When sliding to view BEFORE (slider moving right >50%),
+  // the AFTER title fades out quickly and vanishes completely by 68%.
+  const afterOpacity = sliderPosition <= 50 
+    ? 1 
+    : Math.max(0, 1 - (sliderPosition - 50) / 18);
+
+  // When sliding to view AFTER (slider moving left <50%),
+  // the BEFORE title fades out quickly and vanishes completely by 32%.
+  const beforeOpacity = sliderPosition >= 50 
+    ? 1 
+    : Math.max(0, 1 - (50 - sliderPosition) / 18);
+
   const handleMove = (clientX) => {
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
@@ -161,28 +173,32 @@ export function BeforeAfterSection({ onOpenBooking }) {
               </div>
             </div>
 
-            {/* Top-Left BEFORE Badge (Unclipped, Responsive) */}
+            {/* Top-Left BEFORE Badge (Fades out when sliding to view AFTER) */}
             <div
               className="ba-badge ba-badge-before"
               style={{
-                opacity: sliderPosition < 14 ? 0.3 : 1
+                opacity: beforeOpacity,
+                visibility: beforeOpacity <= 0.02 ? 'hidden' : 'visible',
+                pointerEvents: 'none'
               }}
             >
               <span className="ba-badge-dot"></span>
-              <span className="ba-text-desktop">BEFORE: UNTREATED</span>
-              <span className="ba-text-mobile">BEFORE</span>
+              <span className="ba-text-desktop">BEFORE: DUST & ROAD GRIME</span>
+              <span className="ba-text-mobile">BEFORE: DUSTY</span>
             </div>
 
-            {/* Top-Right AFTER Badge (Unclipped, Responsive) */}
+            {/* Top-Right AFTER Badge (Fades out completely when sliding to view BEFORE) */}
             <div
               className="ba-badge ba-badge-after"
               style={{
-                opacity: sliderPosition > 86 ? 0.3 : 1
+                opacity: afterOpacity,
+                visibility: afterOpacity <= 0.02 ? 'hidden' : 'visible',
+                pointerEvents: 'none'
               }}
             >
               <span className="ba-badge-dot"></span>
-              <span className="ba-text-desktop">AFTER: 9H CERAMIC</span>
-              <span className="ba-text-mobile">AFTER</span>
+              <span className="ba-text-desktop">AFTER: 9H CERAMIC SHINE</span>
+              <span className="ba-text-mobile">AFTER: 9H CERAMIC</span>
             </div>
           </div>
 
@@ -227,7 +243,7 @@ export function BeforeAfterSection({ onOpenBooking }) {
           display: flex;
           align-items: center;
           gap: 6px;
-          transition: opacity 0.25s ease;
+          transition: opacity 0.15s ease, visibility 0.15s ease;
           user-select: none;
         }
         .ba-badge-before {
