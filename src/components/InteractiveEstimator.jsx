@@ -77,15 +77,19 @@ export function InteractiveEstimator({ onOpenBooking }) {
           </p>
         </div>
 
-        <div style={{
-          maxWidth: '1000px',
-          margin: '0 auto',
-          background: 'var(--bg-card)',
-          border: '1px solid var(--border-highlight)',
-          borderRadius: '24px',
-          padding: '36px',
-          boxShadow: 'var(--shadow-lg)'
-        }}>
+        <div 
+          className="estimator-card"
+          style={{
+            maxWidth: '1000px',
+            margin: '0 auto',
+            background: 'var(--bg-card)',
+            border: '1px solid var(--border-highlight)',
+            borderRadius: '24px',
+            padding: 'clamp(18px, 4vw, 36px)',
+            boxShadow: 'var(--shadow-lg)',
+            overflow: 'hidden'
+          }}
+        >
           {/* Step 1: Choose Vehicle Segment */}
           <div style={{ marginBottom: '32px' }}>
             <label style={{
@@ -100,11 +104,14 @@ export function InteractiveEstimator({ onOpenBooking }) {
               Step 1: Select Your Vehicle Type
             </label>
 
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-              gap: '12px'
-            }}>
+            <div 
+              className="estimator-vehicle-grid"
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+                gap: '12px'
+              }}
+            >
               {Object.entries(vehicleMultipliers).map(([key, data]) => {
                 const isSelected = vehicleType === key;
                 return (
@@ -160,11 +167,14 @@ export function InteractiveEstimator({ onOpenBooking }) {
               Step 2: Choose Services & Add-Ons
             </label>
 
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-              gap: '12px'
-            }}>
+            <div 
+              className="estimator-addons-grid"
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                gap: '12px'
+              }}
+            >
               {addOnOptions.map((opt) => {
                 const isChecked = selectedAddons.includes(opt.id);
                 return (
@@ -231,18 +241,21 @@ export function InteractiveEstimator({ onOpenBooking }) {
           </div>
 
           {/* Step 3: Total Summary & Actions */}
-          <div style={{
-            background: 'linear-gradient(135deg, #18241b 0%, #111713 100%)',
-            border: '1.5px solid var(--border-highlight)',
-            borderRadius: '20px',
-            padding: '28px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            flexWrap: 'wrap',
-            gap: '24px',
-            boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4)'
-          }}>
+          <div 
+            className="estimator-summary-box"
+            style={{
+              background: 'linear-gradient(135deg, #18241b 0%, #111713 100%)',
+              border: '1.5px solid var(--border-highlight)',
+              borderRadius: '20px',
+              padding: 'clamp(18px, 3.5vw, 28px)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              flexWrap: 'wrap',
+              gap: '20px',
+              boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4)'
+            }}
+          >
             <div>
               <span style={{
                 fontSize: '0.82rem',
@@ -262,20 +275,23 @@ export function InteractiveEstimator({ onOpenBooking }) {
                 <span style={{ fontSize: '1.4rem', color: 'var(--brand-green)', fontWeight: 700 }}>₹</span>
                 <span style={{
                   fontFamily: 'var(--font-mono)',
-                  fontSize: '3rem',
+                  fontSize: 'clamp(2.2rem, 5vw, 3rem)',
                   fontWeight: 900,
                   color: '#ffffff',
                   lineHeight: 1
                 }}>
                   {totalEstimate.toLocaleString()}
                 </span>
-                <span style={{ fontSize: '0.95rem', color: 'var(--text-muted)' }}>
+                <span style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>
                   ({selectedAddons.length} services selected)
                 </span>
               </div>
             </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+            <div 
+              className="estimator-btn-group"
+              style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}
+            >
               <button
                 onClick={() => onOpenBooking(`Custom Quote: ${vehicleMultipliers[vehicleType].label} (₹${totalEstimate})`)}
                 className="btn-primary"

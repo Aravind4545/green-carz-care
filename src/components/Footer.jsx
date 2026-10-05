@@ -15,6 +15,9 @@ export function Footer({ onOpenBooking, onOpenFlyer }) {
       paddingTop: '80px',
       paddingBottom: '36px',
       position: 'relative',
+      overflow: 'hidden',
+      width: '100%',
+      maxWidth: '100vw',
       color: '#c5d1c7'
     }}>
       {/* Top Ambient Glow Flare */}
@@ -24,6 +27,7 @@ export function Footer({ onOpenBooking, onOpenFlyer }) {
         left: '50%',
         transform: 'translateX(-50%)',
         width: '600px',
+        maxWidth: '100vw',
         height: '150px',
         background: 'radial-gradient(ellipse at 50% 0%, rgba(144, 192, 67, 0.22) 0%, transparent 70%)',
         pointerEvents: 'none'
@@ -31,12 +35,15 @@ export function Footer({ onOpenBooking, onOpenFlyer }) {
 
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         {/* Main 4-Column Footer Grid */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-          gap: '48px',
-          marginBottom: '64px'
-        }}>
+        <div 
+          className="footer-grid"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+            gap: '48px',
+            marginBottom: '64px'
+          }}
+        >
           {/* Column 1: Brand Identity & Certified Partners */}
           <div>
             <div style={{

@@ -84,13 +84,16 @@ export function ServicesCatalog({ onOpenBooking }) {
         </div>
 
         {/* Category Tabs */}
-        <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-          flexWrap: 'wrap',
-          gap: '10px',
-          marginBottom: '40px'
-        }}>
+        <div 
+          className="services-category-tabs"
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            flexWrap: 'wrap',
+            gap: '10px',
+            marginBottom: '40px'
+          }}
+        >
           {categories.map((cat) => (
             <button
               key={cat.id}
@@ -122,11 +125,12 @@ export function ServicesCatalog({ onOpenBooking }) {
                 key={service.id}
                 className="glass-card"
                 style={{
-                  padding: '28px',
+                  padding: 'clamp(18px, 3.5vw, 28px)',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
-                  height: '100%'
+                  height: '100%',
+                  overflow: 'hidden'
                 }}
               >
                 <div>

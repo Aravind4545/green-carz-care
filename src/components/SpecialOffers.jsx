@@ -72,13 +72,16 @@ export function SpecialOffers({ onOpenBooking, onOpenFlyer }) {
         </div>
 
         {/* Vehicle Segment Tabs */}
-        <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-          flexWrap: 'wrap',
-          gap: '12px',
-          marginBottom: '40px'
-        }}>
+        <div 
+          className="vehicle-segment-tabs"
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            flexWrap: 'wrap',
+            gap: '12px',
+            marginBottom: '40px'
+          }}
+        >
           {VEHICLE_PACKAGES.map((pkg) => {
             const isSelected = pkg.id === selectedPackageId;
             return (
@@ -140,22 +143,29 @@ export function SpecialOffers({ onOpenBooking, onOpenFlyer }) {
 
         {viewMode === 'cards' ? (
           /* Detailed Single Package View */
-          <div style={{
-            maxWidth: '1050px',
-            margin: '0 auto',
-            background: 'var(--bg-card)',
-            border: '1px solid var(--border-highlight)',
-            borderRadius: '24px',
-            padding: '36px',
-            boxShadow: 'var(--shadow-lg), 0 0 35px rgba(144, 192, 67, 0.12)',
-            backdropFilter: 'blur(16px)'
-          }}>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-              gap: '40px',
-              alignItems: 'center'
-            }}>
+          <div 
+            className="special-offers-card"
+            style={{
+              maxWidth: '1050px',
+              margin: '0 auto',
+              background: 'var(--bg-card)',
+              border: '1px solid var(--border-highlight)',
+              borderRadius: '24px',
+              padding: 'clamp(18px, 4vw, 36px)',
+              boxShadow: 'var(--shadow-lg), 0 0 35px rgba(144, 192, 67, 0.12)',
+              backdropFilter: 'blur(16px)',
+              overflow: 'hidden'
+            }}
+          >
+            <div 
+              className="special-offers-grid"
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                gap: 'clamp(20px, 3.5vw, 40px)',
+                alignItems: 'center'
+              }}
+            >
               {/* Left Column: Breakdown */}
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
@@ -258,14 +268,17 @@ export function SpecialOffers({ onOpenBooking, onOpenFlyer }) {
                   }}>
                     <Sparkles size={16} /> FREE BONUS CHECKUPS INCLUDED:
                   </div>
-                  <ul style={{
-                    listStyle: 'none',
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-                    gap: '6px',
-                    margin: 0,
-                    padding: 0
-                  }}>
+                  <ul 
+                    className="bonus-checkups-list"
+                    style={{
+                      listStyle: 'none',
+                      display: 'grid',
+                      gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+                      gap: '6px',
+                      margin: 0,
+                      padding: 0
+                    }}
+                  >
                     {activePackage.bonusCheckups.map((chk, i) => (
                       <li key={i} style={{
                         fontSize: '0.82rem',
@@ -282,14 +295,17 @@ export function SpecialOffers({ onOpenBooking, onOpenFlyer }) {
               </div>
 
               {/* Right Column: Pricing Box & Instant Booking */}
-              <div style={{
-                background: 'linear-gradient(145deg, #18221a 0%, #111713 100%)',
-                border: '1.5px solid var(--border-highlight)',
-                borderRadius: '20px',
-                padding: '36px 30px',
-                textAlign: 'center',
-                boxShadow: '0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(144, 192, 67, 0.2)'
-              }}>
+              <div 
+                className="pricing-box"
+                style={{
+                  background: 'linear-gradient(145deg, #18221a 0%, #111713 100%)',
+                  border: '1.5px solid var(--border-highlight)',
+                  borderRadius: '20px',
+                  padding: 'clamp(20px, 3.5vw, 36px) clamp(16px, 3vw, 30px)',
+                  textAlign: 'center',
+                  boxShadow: '0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(144, 192, 67, 0.2)'
+                }}
+              >
                 <span style={{
                   display: 'inline-block',
                   background: '#ff4d4f',
@@ -417,10 +433,13 @@ export function SpecialOffers({ onOpenBooking, onOpenFlyer }) {
           /* Side-by-Side Comparison Matrix */
           <div style={{
             overflowX: 'auto',
+            width: '100%',
+            maxWidth: '100%',
+            WebkitOverflowScrolling: 'touch',
             background: 'var(--bg-card)',
             borderRadius: '20px',
             border: '1px solid var(--border-color)',
-            padding: '24px'
+            padding: 'clamp(14px, 3vw, 24px)'
           }}>
             <table style={{
               width: '100%',

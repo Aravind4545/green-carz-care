@@ -36,25 +36,28 @@ export function Navbar({ theme, toggleTheme, onOpenBooking, onOpenFlyer }) {
       transition: 'all 0.3s ease'
     }}>
       {/* Top Announcement Bar - Seamless with theme */}
-      <div style={{
-        background: isLight 
-          ? '#edf5ec' 
-          : 'rgba(9, 13, 10, 0.95)',
-        borderBottom: isLight 
-          ? '1px solid rgba(86, 152, 20, 0.2)' 
-          : '1px solid rgba(142, 224, 36, 0.25)',
-        padding: '5px 24px',
-        fontSize: '0.8rem',
-        color: isLight ? '#284710' : '#dcf5cb',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        flexWrap: 'wrap',
-        gap: '8px',
-        transition: 'background-color 0.3s ease'
-      }}>
+      <div 
+        className="top-announcement-bar"
+        style={{
+          background: isLight 
+            ? '#edf5ec' 
+            : 'rgba(9, 13, 10, 0.95)',
+          borderBottom: isLight 
+            ? '1px solid rgba(86, 152, 20, 0.2)' 
+            : '1px solid rgba(142, 224, 36, 0.25)',
+          padding: '6px 16px',
+          fontSize: '0.8rem',
+          color: isLight ? '#284710' : '#dcf5cb',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: '8px',
+          transition: 'background-color 0.3s ease',
+          overflow: 'hidden'
+        }}
+      >
         {/* Left: Anniversary Tag & Community Message */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <div className="announcement-left" style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0, overflow: 'hidden' }}>
           <span style={{
             background: isLight ? 'var(--brand-green)' : 'var(--brand-green-gradient)',
             color: isLight ? '#ffffff' : '#081009',
@@ -63,16 +66,18 @@ export function Navbar({ theme, toggleTheme, onOpenBooking, onOpenFlyer }) {
             padding: '2px 8px',
             borderRadius: '4px',
             textTransform: 'uppercase',
-            letterSpacing: '0.06em'
+            letterSpacing: '0.06em',
+            whiteSpace: 'nowrap',
+            flexShrink: 0
           }}>
-            2nd Anniversary Special
+            2nd Anniv Special
           </span>
 
-          <span style={{ fontSize: '0.82rem', fontWeight: 600 }}>
+          <span className="announcement-text" style={{ fontSize: '0.8rem', fontWeight: 600, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
             {showTelugu ? (
-              <span>2 సంవత్సరాల విశ్వాసానికి ధన్యవాదాలు! ప్యాకేజీలు ₹1,999/- నుండి ప్రారంభం.</span>
+              <span>2 సం॥ విశ్వాసానికి ధన్యవాదాలు! ప్యాకేజీలు ₹1,999/- నుండి</span>
             ) : (
-              <span>Celebrating 2+ years of trust in Jangareddygudem! Detailing packages from ₹1,999/-</span>
+              <span>Celebrating 2+ years of trust! Packages from ₹1,999/-</span>
             )}
           </span>
 
@@ -86,15 +91,17 @@ export function Navbar({ theme, toggleTheme, onOpenBooking, onOpenFlyer }) {
               cursor: 'pointer',
               textDecoration: 'underline',
               fontWeight: 700,
-              padding: '0 2px'
+              padding: '0 2px',
+              whiteSpace: 'nowrap',
+              flexShrink: 0
             }}
           >
             [{showTelugu ? 'English' : 'తెలుగు'}]
           </button>
         </div>
 
-        {/* Right: Quick Flyer & Call Button */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+        {/* Right: Quick Flyer & Call Button - hidden on mobile */}
+        <div className="announcement-right" style={{ display: 'flex', alignItems: 'center', gap: '14px', flexShrink: 0 }}>
           <button
             onClick={onOpenFlyer}
             style={{
@@ -108,7 +115,8 @@ export function Navbar({ theme, toggleTheme, onOpenBooking, onOpenFlyer }) {
               cursor: 'pointer',
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '4px'
+              gap: '4px',
+              whiteSpace: 'nowrap'
             }}
           >
             <Sparkles size={11} /> View Official Flyer
@@ -123,7 +131,8 @@ export function Navbar({ theme, toggleTheme, onOpenBooking, onOpenFlyer }) {
               color: isLight ? '#38660a' : '#b8fa4f',
               fontWeight: 800,
               fontSize: '0.8rem',
-              textDecoration: 'none'
+              textDecoration: 'none',
+              whiteSpace: 'nowrap'
             }}
           >
             <Phone size={12} /> {BUSINESS_INFO.phones[0].number}
@@ -294,10 +303,10 @@ export function Navbar({ theme, toggleTheme, onOpenBooking, onOpenFlyer }) {
               {isLight ? <Moon size={18} /> : <Sun size={18} />}
             </button>
 
-            {/* Book Appointment CTA */}
+            {/* Book Appointment CTA - Hidden on mobile/tablet */}
             <button
               onClick={() => onOpenBooking()}
-              className="btn-primary"
+              className="btn-primary desktop-book-btn"
               style={{
                 padding: '10px 22px',
                 fontSize: '0.9rem',
@@ -394,11 +403,24 @@ export function Navbar({ theme, toggleTheme, onOpenBooking, onOpenFlyer }) {
 
       <style>{`
         @media (max-width: 992px) {
-          .desktop-nav, .desktop-divider {
+          .desktop-nav, .desktop-divider, .desktop-book-btn {
             display: none !important;
           }
           .mobile-toggle {
             display: flex !important;
+          }
+        }
+        @media (max-width: 768px) {
+          .announcement-right {
+            display: none !important;
+          }
+          .top-announcement-bar {
+            padding: 6px 12px !important;
+            justify-content: center !important;
+          }
+          .announcement-left {
+            justify-content: center !important;
+            width: 100% !important;
           }
         }
       `}</style>

@@ -12,17 +12,22 @@ export function Hero({ onOpenBooking, onOpenFlyer, theme }) {
   ];
 
   return (
-    <section style={{
-      position: 'relative',
-      minHeight: '100vh',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      paddingTop: '135px',
-      paddingBottom: '40px',
-      overflow: 'hidden',
-      transition: 'all 0.3s ease'
-    }}>
+    <section 
+      className="hero-section"
+      style={{
+        position: 'relative',
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        paddingTop: 'clamp(95px, 14vw, 135px)',
+        paddingBottom: '30px',
+        width: '100%',
+        maxWidth: '100vw',
+        overflow: 'hidden',
+        transition: 'all 0.3s ease'
+      }}
+    >
       {/* Background Car Wash & Detailing Image */}
       <div style={{
         position: 'absolute',
@@ -105,7 +110,7 @@ export function Hero({ onOpenBooking, onOpenFlyer, theme }) {
 
           {/* Main Hero Headline - Attractive, Crisp, Logo-Synced */}
           <h1 style={{
-            fontSize: 'clamp(2.4rem, 5.4vw, 4.3rem)',
+            fontSize: 'clamp(1.85rem, 5.2vw, 4.3rem)',
             fontWeight: 900,
             lineHeight: 1.15,
             letterSpacing: '-0.025em',
@@ -134,7 +139,7 @@ export function Hero({ onOpenBooking, onOpenFlyer, theme }) {
 
           {/* Subtitle */}
           <p style={{
-            fontSize: 'clamp(1rem, 1.8vw, 1.22rem)',
+            fontSize: 'clamp(0.95rem, 1.8vw, 1.22rem)',
             color: isLight ? '#38483a' : '#d6dfd7',
             lineHeight: 1.6,
             maxWidth: '720px',
@@ -148,13 +153,16 @@ export function Hero({ onOpenBooking, onOpenFlyer, theme }) {
           </p>
 
           {/* Action CTAs: High Visibility Buttons */}
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            flexWrap: 'wrap',
-            gap: '16px',
-            marginBottom: '44px'
-          }}>
+          <div 
+            className="hero-cta-group"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              flexWrap: 'wrap',
+              gap: '16px',
+              marginBottom: '44px'
+            }}
+          >
             {/* Primary Action Button */}
             <button
               onClick={() => onOpenBooking()}
@@ -222,12 +230,15 @@ export function Hero({ onOpenBooking, onOpenFlyer, theme }) {
           </div>
 
           {/* Key Value Stats Strip */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-            gap: '14px',
-            maxWidth: '820px'
-          }}>
+          <div 
+            className="hero-stats-grid"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+              gap: '14px',
+              maxWidth: '820px'
+            }}
+          >
             <div style={{
               background: isLight ? '#ffffff' : 'rgba(16, 22, 17, 0.85)',
               border: isLight ? '1px solid rgba(20, 36, 22, 0.12)' : '1px solid rgba(142, 224, 36, 0.3)',
@@ -310,13 +321,16 @@ export function Hero({ onOpenBooking, onOpenFlyer, theme }) {
 
       {/* Infinite Automotive Services Marquee Ticker */}
       <div style={{
-        marginTop: '56px',
+        marginTop: 'clamp(32px, 6vw, 56px)',
         position: 'relative',
         zIndex: 2,
+        width: '100%',
+        maxWidth: '100%',
+        minWidth: 0,
         background: isLight ? '#ffffff' : '#0c110d',
         borderTop: isLight ? '1px solid rgba(20, 36, 22, 0.1)' : '1px solid rgba(142, 224, 36, 0.3)',
         borderBottom: isLight ? '1px solid rgba(20, 36, 22, 0.1)' : '1px solid rgba(142, 224, 36, 0.3)',
-        padding: '13px 0',
+        padding: '11px 0',
         overflow: 'hidden',
         boxShadow: isLight ? '0 2px 8px rgba(0, 0, 0, 0.03)' : 'none'
       }}>

@@ -51,7 +51,7 @@ export function LocationAndContact({ onOpenBooking, theme }) {
         {/* Content Grid: Contact Details & Quick Form */}
         <div className="grid-2" style={{ maxWidth: '1150px', margin: '0 auto 48px auto' }}>
           {/* Left Column: Workshop Details & Phone Directory */}
-          <div className="glass-card" style={{ padding: '36px' }}>
+          <div className="glass-card" style={{ padding: 'clamp(18px, 4vw, 36px)', overflow: 'hidden' }}>
             <h3 style={{ fontSize: '1.5rem', marginBottom: '20px', color: 'var(--text-primary)' }}>
               Contact & Workshop Directory
             </h3>
@@ -186,7 +186,7 @@ export function LocationAndContact({ onOpenBooking, theme }) {
           </div>
 
           {/* Right Column: Direct Callback Request Form */}
-          <div className="glass-card" style={{ padding: '36px' }}>
+          <div className="glass-card" style={{ padding: 'clamp(18px, 4vw, 36px)', overflow: 'hidden' }}>
             <h3 style={{ fontSize: '1.5rem', marginBottom: '8px', color: 'var(--text-primary)' }}>
               Request Instant Callback
             </h3>

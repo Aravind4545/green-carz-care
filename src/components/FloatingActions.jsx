@@ -4,20 +4,23 @@ import { BUSINESS_INFO } from '../data/servicesData';
 
 export function FloatingActions({ onOpenBooking }) {
   return (
-    <div style={{
-      position: 'fixed',
-      bottom: '24px',
-      right: '24px',
-      zIndex: 999,
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '12px',
-      alignItems: 'flex-end'
-    }}>
-      {/* Quick Booking FAB */}
+    <div 
+      className="floating-actions-container"
+      style={{
+        position: 'fixed',
+        bottom: '24px',
+        right: '24px',
+        zIndex: 999,
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '12px',
+        alignItems: 'flex-end'
+      }}
+    >
+      {/* Quick Booking FAB - desktop/tablet only */}
       <button
         onClick={() => onOpenBooking()}
-        className="btn-primary"
+        className="btn-primary floating-book-btn"
         style={{
           borderRadius: '999px',
           padding: '12px 20px',

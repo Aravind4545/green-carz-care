@@ -69,13 +69,16 @@ export function HealthCheckup37Point({ onOpenBooking }) {
         </div>
 
         {/* 37-Point Checklist Grid */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
-          gap: '12px',
-          maxWidth: '1150px',
-          margin: '0 auto 40px auto'
-        }}>
+        <div 
+          className="health-check-grid"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
+            gap: '12px',
+            maxWidth: '1150px',
+            margin: '0 auto 40px auto'
+          }}
+        >
           {filteredPoints.map((point) => (
             <div
               key={point.id}

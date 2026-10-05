@@ -74,7 +74,8 @@ export function BeforeAfterSection({ onOpenBooking }) {
               cursor: isDragging ? 'grabbing' : 'ew-resize',
               border: '2px solid var(--border-highlight)',
               boxShadow: '0 20px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(144, 192, 67, 0.15)',
-              userSelect: 'none'
+              userSelect: 'none',
+              touchAction: 'pan-y'
             }}
           >
             {/* Background Full Image */}
@@ -108,8 +109,8 @@ export function BeforeAfterSection({ onOpenBooking }) {
                 top: '50%',
                 left: '50%',
                 transform: 'translate(-50%, -50%)',
-                width: '48px',
-                height: '48px',
+                width: '44px',
+                height: '44px',
                 borderRadius: '50%',
                 background: 'var(--brand-green-gradient)',
                 border: '3px solid #ffffff',
@@ -120,49 +121,57 @@ export function BeforeAfterSection({ onOpenBooking }) {
                 color: '#0e130f',
                 cursor: 'grab'
               }}>
-                <SlidersHorizontal size={20} strokeWidth={2.5} />
+                <SlidersHorizontal size={18} strokeWidth={2.5} />
               </div>
             </div>
 
             {/* Left Label: BEFORE */}
-            <div style={{
-              position: 'absolute',
-              top: '20px',
-              left: '20px',
-              background: 'rgba(15, 20, 16, 0.85)',
-              backdropFilter: 'blur(8px)',
-              border: '1px solid rgba(255, 255, 255, 0.15)',
-              padding: '8px 16px',
-              borderRadius: '999px',
-              color: '#ff7875',
-              fontSize: '0.85rem',
-              fontWeight: 800,
-              letterSpacing: '0.08em',
-              zIndex: 4,
-              pointerEvents: 'none'
-            }}>
-              BEFORE: OXIDIZED & DUSTY
+            <div 
+              className="before-badge"
+              style={{
+                position: 'absolute',
+                top: '14px',
+                left: '14px',
+                background: 'rgba(15, 20, 16, 0.88)',
+                backdropFilter: 'blur(8px)',
+                border: '1px solid rgba(255, 255, 255, 0.15)',
+                padding: '6px 12px',
+                borderRadius: '999px',
+                color: '#ff7875',
+                fontSize: '0.78rem',
+                fontWeight: 800,
+                letterSpacing: '0.06em',
+                zIndex: 4,
+                pointerEvents: 'none',
+                whiteSpace: 'nowrap'
+              }}
+            >
+              BEFORE: DUSTY & DULL
             </div>
 
             {/* Right Label: AFTER */}
-            <div style={{
-              position: 'absolute',
-              top: '20px',
-              right: '20px',
-              background: 'rgba(15, 20, 16, 0.85)',
-              backdropFilter: 'blur(8px)',
-              border: '1px solid var(--border-highlight)',
-              padding: '8px 16px',
-              borderRadius: '999px',
-              color: 'var(--brand-green-bright)',
-              fontSize: '0.85rem',
-              fontWeight: 800,
-              letterSpacing: '0.08em',
-              zIndex: 4,
-              pointerEvents: 'none',
-              boxShadow: '0 0 15px rgba(144, 192, 67, 0.3)'
-            }}>
-              AFTER: 9H CERAMIC MIRROR GLOSS
+            <div 
+              className="after-badge"
+              style={{
+                position: 'absolute',
+                top: '14px',
+                right: '14px',
+                background: 'rgba(15, 20, 16, 0.88)',
+                backdropFilter: 'blur(8px)',
+                border: '1px solid var(--border-highlight)',
+                padding: '6px 12px',
+                borderRadius: '999px',
+                color: 'var(--brand-green-bright)',
+                fontSize: '0.78rem',
+                fontWeight: 800,
+                letterSpacing: '0.06em',
+                zIndex: 4,
+                pointerEvents: 'none',
+                whiteSpace: 'nowrap',
+                boxShadow: '0 0 15px rgba(144, 192, 67, 0.3)'
+              }}
+            >
+              AFTER: 9H CERAMIC GLOSS
             </div>
           </div>
 

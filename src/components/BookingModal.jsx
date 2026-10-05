@@ -88,7 +88,7 @@ export function BookingModal({ isOpen, onClose, preselectedService }) {
             </div>
 
             <form onSubmit={handleSubmit}>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px' }}>
+              <div className="modal-form-row" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px' }}>
                 <div className="form-group">
                   <label className="form-label">Your Name *</label>
                   <input
@@ -114,7 +114,7 @@ export function BookingModal({ isOpen, onClose, preselectedService }) {
                 </div>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px' }}>
+              <div className="modal-form-row" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px' }}>
                 <div className="form-group">
                   <label className="form-label">Car Model & Year</label>
                   <input
@@ -148,7 +148,7 @@ export function BookingModal({ isOpen, onClose, preselectedService }) {
                 </div>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px' }}>
+              <div className="modal-form-row" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px' }}>
                 <div className="form-group">
                   <label className="form-label">Preferred Date</label>
                   <input
